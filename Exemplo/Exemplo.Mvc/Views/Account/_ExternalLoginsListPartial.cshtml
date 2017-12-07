@@ -1,0 +1,49 @@
+﻿@model  Infra.CrossCutting.Identity.Model.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<h4>Use outro serviço para fazer login</h4>
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() == 0) {
+        <div>
+            <p>
+                Não há serviços de autenticação externos configurados. 
+            </p>
+        </div>
+    }
+    else {
+        using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            <div id="socialLoginList">
+                <p>
+
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
+
+                        if (p.AuthenticationType == "Google")
+                        {
+                            <button type="submit" class="btn btn-social-icon btn-google" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in com @p.Caption"><i class="fa fa-google"></i></button>
+
+                        }
+                        else if (p.AuthenticationType == "Facebook")
+                        {
+                            <button type="submit" class="btn btn-social-icon btn-facebook" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in com @p.Caption"><i class="fa fa-facebook fa-lg"></i></button>
+
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-social-icon btn-microsoft" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in com @p.Caption"><i class="fa fa-windows"></i></button>
+
+                        }
+                    }
+
+                </p>
+            </div>
+        }
+    }
+
+}
+
+

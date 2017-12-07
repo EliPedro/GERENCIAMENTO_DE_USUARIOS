@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET IDENTITY 2.2.1</h1>
+    <p class="lead">O ASP.NET Identity foi lançado junto com o ASP.NET MVC 5 e o Visual Studio 2013 e 
+       logo foi muito bem aceito pela comunidade técnica, pois possui uma arquitetura bem aberta, limpa e modularizada de forma que proporciona grande facilidade de customização e testabilidade.</p>
+    <p><a href="http://www.eduardopires.net.br/2014/08/asp-net-identity-tutorial-completo/" class="btn btn-primary btn-lg">Aprenda mais &raquo;</a></p>
+</div>
+
+@{
+
+    if (TempData["AvisoEmail"] != null)
+    {
+        <h4 class="text-danger">@TempData["AvisoEmail"]</h4>
+    }
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>ASP.NET MVC</h2>
+        <p>
+            O ASP.NET MVC oferece uma maneira poderosa e baseada em padrões para criar sites dinâmicos que 
+            permite uma separação limpa das preocupações e dá-lhe controle total sobre a marcação para um  
+            desenvolvimento agradável e ágil. </p>
+        <p><a class="btn btn-default" href="https://msdn.microsoft.com/pt-br/library/Dd381412(v=VS.108).aspx">Aprenda mais &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>OWIN</h2>
+        <p>Open Web Interface for .NET define uma interface padrão entre os servidores web .NET e os aplicativos da Web. 
+            O objetivo da interface OWIN é desacoplar o servidor e a aplicação, 
+            incentivar o desenvolvimento de módulos simples para o desenvolvimento da Web .NET e, 
+            ao ser um padrão aberto, estimular o ecossistema de código aberto das ferramentas de desenvolvimento de .NET.</p>
+        <p><a class="btn btn-default" href="http://owin.org/">Aprenda mais &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Simple Injector</h2>
+        <p>O Simple Injector é uma biblioteca de injeção de dependência fácil, flexível e rápida que usa as melhores práticas para orientar suas soluções em direção ao sucesso.
+        </p>
+        <p><a class="btn btn-default" href="https://simpleinjector.org/index.html">Aprenda mais &raquo;</a></p>
+    </div>
+</div>
+
